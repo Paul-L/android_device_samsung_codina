@@ -17,7 +17,6 @@ TARGET_BOARD_PLATFORM := montblanc
 TARGET_SOC := u8500
 TARGET_BOOTLOADER_BOARD_NAME := montblanc
 BOARD_USES_STE_HARDWARE := true
-COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -25,7 +24,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_RECOVERY_INITRC := device/samsung/codina/rootdir/recovery.rc
-BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/samsung/codina/vibrator/vibrator.c
+#BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/samsung/codina/vibrator/vibrator.c
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -35,10 +34,10 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 BOARD_USES_PROPRIETARY_OMX := samsung
 
 # Kernel
-BOARD_KERNEL_CMDLINE := "console=ttySAC2,115200"
+BOARD_KERNEL_CMDLINE := "root=/dev/ram0 init=init rw console=ttyAMA2,115200n8 mem=256M initrd=0x800000,72M"
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 4096
-TARGET_KERNEL_SOURCE := kernel/samsung/u8500
+TARGET_KERNEL_SOURCE := kernel/samsung/codina
 TARGET_KERNEL_CONFIG := cyanogenmod_i8160_defconfig
 
 # Filesystem
@@ -52,10 +51,12 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
++COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
 
 # Graphics
 BOARD_EGL_CFG := device/samsung/codina/configs/egl.cfg
 USE_OPENGL_RENDERER := true
++COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE -DSTE_HDMI
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true

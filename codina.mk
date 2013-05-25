@@ -13,7 +13,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
     $(LOCAL_PATH)/rootdir/prerecovery.rc:root/prerecovery.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
+    $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
+    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc
 
 # STE
 PRODUCT_COPY_FILES += \
@@ -96,14 +97,20 @@ PRODUCT_PACKAGES := \
     com.android.future.usb.accessory \
     libaudioutils \
     libtinyalsa \
-    Torch
+    Torch \
+    Superuser
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=Smdk4210RIL \
     mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
     ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10
+    ro.ril.gprsclass=10 \
+    ro.com.google.locationfeatures=1 \
+    ro.setupwizard.mode=OPTIONAL \
+    ro.setupwizard.enable_bypass=1 \
+#    net.bt.name=Android \
+#    ro.config.sync=yes
 
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/manuf_id.cfg:/system/etc/AT/manuf_id.cfg \
