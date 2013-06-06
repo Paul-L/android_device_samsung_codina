@@ -14,7 +14,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
     $(LOCAL_PATH)/rootdir/prerecovery.rc:root/prerecovery.rc \
     $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc
+    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
+    $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc
 
 # STE
 PRODUCT_COPY_FILES += \
@@ -92,13 +93,16 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
+#    audio.primary.montblanc \
     audio.a2dp.default \
-    audio.usb.default \
-    com.android.future.usb.accessory \
-    libaudioutils \
-    libtinyalsa \
+#    libaudiohw_legacy \
+#    audio.usb.default \
+#    com.android.future.usb.accessory \
+#    libaudioutils \
+#    libtinyalsa \
     Torch \
-    Superuser
+    Superuser \
+    lights.montblanc
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,7 +165,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+#    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
